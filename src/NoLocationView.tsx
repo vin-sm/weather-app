@@ -1,21 +1,96 @@
+import React, { useState, useEffect } from 'react';
 import './css/NoLocationView.css'
 import searchIcon from './assets/searchIcon.svg'
 import noLoactionIcon from './assets/noLoactionIcon.svg'
+import WeatherCard from './WeatherCard'
+import WeatherData from './WeatherData';
+// import { useDataContext } from './DataContext';
 
 function NoLocationView() {
+
+    // const { data, addData } = useDataContext();
+    const [searchText, setSearchText] = useState<string>('');
+    const [tags, setTags] = useState<string[]>([]);
+
+    const addSearchTag = () => {
+        if (searchText.trim() !== '') {
+            setTags([...tags, searchText.trim()]);
+            setSearchText('');
+        }
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchText(e.target.value);
+    };
+
+    const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+    const API_KEY = '7abea1c2a90addf6e25624a5c05413af';
+    const CITY = 'Bangalore';
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`
+                );
+
+                if (!response.ok) {
+                    throw new Error('Weather data not available');
+                }
+
+                const data = await response.json();
+                const parsedData: WeatherData = {
+                    id: data.weather[0].id,
+                    name: CITY/*data.sys.name*/,
+                    temperature: data.main.temp,
+                    main: data.weather[0].main,
+                    icon: data.weather[0].icon,
+                    description: data.weather[0].description,
+                    pressure: data.main.pressure,
+                    humidity: data.main.humidity,
+                    // rain: data.rain['1h'],
+                    clouds: data.clouds.all
+                    // Parse more data properties as needed
+                };
+
+                setWeatherData(parsedData);
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        };
+
+        fetchData();
+    }, [API_KEY, CITY]);
+
     return (
-        <div className='no-location-view'>
-            <div className="search-container">
-                <input type="text" placeholder="Search Location" className="search-input" />
-                <button type="submit" className="search-button">
-                    <img src={searchIcon} alt="Search Icon" />
-                </button>
+            <div className='no-location-view'>
+                <div className="search-container">
+                    <input type="text"
+                        value={searchText}
+                        onChange={handleInputChange}
+                        className="search-input"
+                        placeholder="Search Location" />
+                    <button type="submit" className="search-button" onClick={addSearchTag}>
+                        <img src={searchIcon} alt="Search Icon" />
+                    </button>
+                </div>
+                <div className="tag-container">
+                    {tags.map((tag, index) => (
+                        <div key={index} className="tag">
+                            {tag}
+                        </div>
+                    ))}
+                </div>
+                {weatherData ?
+                    <div className='weather-card-view'>
+                        <WeatherCard weatherData={weatherData} />
+                    </div> :
+                    <div className='no-location-title'>
+                        <img src={noLoactionIcon} alt="noLoactionIcon" />
+                        <div>No locations added to watchlist</div>
+                    </div>
+                }
             </div>
-            <div className='no-location-title'>
-                <img src={noLoactionIcon} alt="noLoactionIcon" />
-                <div>No locations added to watchlist</div>
-            </div>
-        </div>
     );
 };
 

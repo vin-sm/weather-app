@@ -1,0 +1,77 @@
+.weather-card {
+    background-color: #FDFCFC;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    padding: 20px;
+    margin-top: 20px;
+    width: 240px;
+    border-radius: 12px;
+}
+.weather-name-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.weather-name-view div {
+    color: #2C2C2C;
+    font-size: 18px;
+    font-weight: 500;
+}
+.weather-name-view button {
+    border: none;
+    background-color: white;
+}
+.temperature-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+.temperature {
+    display: flex;
+}
+.temperature div {
+    font-size: 50px;
+    font-weight: 500;
+    font-style: normal;
+}
+.temperature img {
+    width: 5px;
+    height: 5px;
+    position: relative;
+    top: 8px;
+}
+.temperature-view img {
+    color: #9CD5F2;
+}
+.detail-view{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+.warning-view {
+    display: flex;
+    align-items: center;
+}
+.warning-view img {
+    width: 30px;
+    height: 30px;
+    padding-right: 10px;
+}
+.detail-view div {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    color: #BFAF1B;
+}
+@media screen and (max-width: 768px) { 
+    .weather-card {
+        border: none;
+        background-color: white;
+        box-shadow: none;
+    }
+    .weather-name-view button {
+       display: none;
+    }
+}

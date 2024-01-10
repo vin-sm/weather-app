@@ -1,0 +1,17 @@
+.weather-detail-view {
+    padding-top: 60px;
+}
+.header-view {
+    display: flex;
+    justify-content: space-between;
+    /* padding-top: 100px; */
+}
+.header-view button {
+    display: flex;
+}
+.actions {
+    display: flex;
+}
+.actions div {
+    display: flex;
+}
