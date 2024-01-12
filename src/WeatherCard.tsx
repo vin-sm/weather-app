@@ -1,7 +1,7 @@
+import React from 'react';
 import './css/WeatherCard.css'
 import celsiusIcon from './assets/degreeIcon.svg'
 import warningIcon from './assets/warningIcon.svg'
-import WeatherData from './WeatherData';
 import rightArrow from './assets/rightArrow.svg';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,8 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weatherData }) => {
         <div className='weather-card'>
             <div className='weather-name-view'>
                 <div>{weatherData.name}</div>
-                <Link to={`/details`}>
+                <Link to="/details" state={{ type: weatherData }}>
+                {/* <Link to={'/details'}> */}
                     <button><img src={rightArrow} alt="rightArrow" /></button>
                 </Link>
             </div>

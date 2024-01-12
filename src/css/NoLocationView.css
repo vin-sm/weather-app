@@ -6,7 +6,14 @@
     align-items: center;
     height: 80vh;
 }
-
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    grid-gap: 20px; /*Spacing between cards*/
+    max-width: 1200px; /* Set your desired maximum width */
+    margin: 0;
+}
 .search-container {
     display: flex;
     border: 1px solid #DADADA;
@@ -23,6 +30,7 @@
     outline: none;
     padding: 8px;
     font-size: 16px;
+    font-family: 'Roboto' sans-serif;
 }
 
 .search-button {
@@ -42,6 +50,7 @@
 }
 
 .no-location-title div {
+    font-family: 'Roboto' sans-serif;
     font-size: 18px;
     font-weight: 400;
     font-style: normal;
