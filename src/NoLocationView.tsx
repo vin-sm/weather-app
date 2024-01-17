@@ -78,7 +78,7 @@ function NoLocationView() {
         </div>
       ) : weatherData ? (
         <div className="weather-card-view">
-          <Link to="/details" state={{ type: weatherData }} style={{ textDecoration: 'none', alignItems: 'start'}}>
+          <Link to="/details" state={{ type: weatherData }} style={{ textDecoration: 'none'}}>
             <WeatherCard weatherData={weatherData} />
           </Link>
         </div>
