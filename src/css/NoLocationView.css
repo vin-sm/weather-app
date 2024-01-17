@@ -4,22 +4,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-}
-.grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    grid-gap: 20px; /*Spacing between cards*/
-    max-width: 1200px; /* Set your desired maximum width */
-    margin: 0;
+    padding-top: 140px;
 }
 .search-container {
     display: flex;
     border: 1px solid #DADADA;
     border-radius: 20px;
     padding: 5px;
-    width: 50%;
+    width: 60%;
     height: 40px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
 }
@@ -73,7 +65,10 @@
     margin: 10px;
     cursor: pointer;
 }
-
+.weather-detail-card-view {
+    padding-top: 40px;
+    width: 60%;
+}
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     .search-container {
@@ -81,5 +76,9 @@
         /* Set container width to 100% on smaller screens */
         max-width: 90%;
         /* Limit maximum width on smaller screens */
+    }
+    .weather-detail-card-view {
+        padding-top: 20px;
+        width: 100%;
     }
 }

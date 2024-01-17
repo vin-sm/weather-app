@@ -13,6 +13,7 @@
     align-items: center;
 }
 .weather-name-view div {
+    font-family: 'Roboto' sans-serif;
     color: #2C2C2C;
     font-size: 18px;
     font-weight: 500;
@@ -31,6 +32,7 @@
     display: flex;
 }
 .temperature div {
+    font-family: 'Roboto' sans-serif;
     font-size: 50px;
     font-weight: 500;
     font-style: normal;
@@ -60,6 +62,7 @@
     padding-right: 10px;
 }
 .detail-view div {
+    font-family: 'Roboto' sans-serif;
     font-size: 14px;
     font-weight: 400;
     font-style: normal;

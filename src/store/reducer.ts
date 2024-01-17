@@ -16,7 +16,7 @@ const appSlice = createSlice({
     },
     removeObject: (state, action) => {
       state.weatherInfos = state.weatherInfos.filter(
-        (data) => data.key !== action.payload
+        (data) => data.id !== action.payload
       );
     },
   },

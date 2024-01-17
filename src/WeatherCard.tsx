@@ -17,7 +17,6 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weatherData }) => {
             <div className='weather-name-view'>
                 <div>{weatherData.name}</div>
                 <Link to="/details" state={{ type: weatherData }}>
-                {/* <Link to={'/details'}> */}
                     <button><img src={rightArrow} alt="rightArrow" /></button>
                 </Link>
             </div>

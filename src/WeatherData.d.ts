@@ -1,6 +1,5 @@
 interface WeatherData {
-  key: number;
-  id: string;
+  id: number;
   name: string;
   temperature: number;
   main: string;
@@ -8,9 +7,12 @@ interface WeatherData {
   description: string;
   pressure: number;
   humidity: string;
-  // rain: number;
+  rain: number;
   clouds: number;
   isAdded: boolean;
+  date: string;
+  dayLength: string;
+  dayLight: string;
 }
 
 interface WeatherDataState {

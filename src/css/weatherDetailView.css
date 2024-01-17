@@ -51,10 +51,15 @@
     display: flex;
     align-items: center;
 }
-.added-list button {
+.remove-button-view {
+    display: flex;
+    justify-content: end;
+}
+.added-list button, .remove-button-view button {
     background-color: #EC7272;
     color: white;
     padding: 8px 20px;
+    border: none;
     border-radius: 6px;
     margin-left: 10px;
     font-family: 'Roboto' sans-serif;
@@ -101,6 +106,11 @@
     align-items: center;
     padding-bottom: 16px;
 }
+.city-name img {
+    width: 16px;
+    height: auto;
+    padding-left: 10px;
+}
 .weather-detail {
     margin-top: 20px;
     display: flex;
@@ -108,9 +118,10 @@
     background-color: #FDFCFC;
     border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 10px;
-    width: 40%;
+    width: 60%;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 20px;
 }
 .weather-detail div {
     display: flex;
@@ -134,27 +145,69 @@
     font-style: normal;
 }
 .sunrise-sunset-view {
+    width: 60%;
     margin-top: 20px;
     display: flex;
+    /* justify-content: start;
+    align-items: start; */
+    flex-direction: column;
     background-color: #FDFCFC;
     border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 10px;
-    width: 40%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 .sunrise-sunset-title {
     color: #C4C4C4;
-    align-content: start;
-    padding-left: 20px;
+    padding-bottom: 20px;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 500;
+}
+.day-info {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.length-of-day {
+    display: flex;
+    padding-bottom: 10px;
+}
+.weather-grapgh {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+}
+.day-title {
+    padding-right: 5px;
+    color: #9A9A9A;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.day-sub-title {
+    color: #2C2C2C;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
 }
 
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     .weather-detail {
         border: none;
+        background-color: white;
+    }
+    .sunrise-sunset-view  {
+        border: none;
+        background-color: white;
+        width: 90%;
     }
     .weather-detail-view {
+        width: 100%;
         padding-top: 80px;
+    }
+    .grapgh-and-day-info {
+        padding-bottom: 20px;
     }
 }

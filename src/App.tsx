@@ -2,7 +2,6 @@ import React from 'react';
 import "./App.css";
 import NavBar from "./NavBar";
 import NoLocationView from "./NoLocationView";
-// import { DataProvider } from './DataContext';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WeatherDetailView from "./WeatherDetailView";
 import { Provider } from "react-redux";
