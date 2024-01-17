@@ -34,7 +34,7 @@
 
 .no-location-title {
     padding-top: 100px;
-    align-items: center;
+    align-self: center;
 }
 
 .left-side img {
@@ -54,7 +54,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
-    justify-content: flex-start;
+    width: 60%;
 }
 
 .tag {
@@ -62,19 +62,20 @@
     padding: 5px 20px;
     border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 15px;
-    margin: 10px;
     cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 .weather-detail-card-view {
     padding-top: 40px;
     width: 60%;
 }
 .weather-card-view {
-    text-decoration: none;
+    width: 60%;
 }
 /* Responsive styles */
 @media screen and (max-width: 768px) {
-    .search-container {
+    .search-container, .weather-card-view, .tag-container{
         width: 100%;
         /* Set container width to 100% on smaller screens */
         max-width: 90%;

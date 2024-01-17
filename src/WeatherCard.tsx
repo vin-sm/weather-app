@@ -3,7 +3,6 @@ import './css/WeatherCard.css'
 import celsiusIcon from './assets/degreeIcon.svg'
 import warningIcon from './assets/warningIcon.svg'
 import rightArrow from './assets/rightArrow.svg';
-import { Link } from 'react-router-dom';
 
 interface WeatherCardProps {
     weatherData: WeatherData;
@@ -29,8 +28,8 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weatherData }) => {
                 {(weatherData.clouds >= 75) ?
                     <div className='warning-view'>
                         <img src={warningIcon} alt='celsiusIcon' />
-                        <div>Warning</div> </div> : ''}
-                <div>{weatherData.description}</div>
+                        <div>Warning</div> </div> : <div> </div>}
+                <div className='description'>{weatherData.description}</div>
             </div>
         </div >
     );

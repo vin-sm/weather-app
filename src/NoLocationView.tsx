@@ -17,10 +17,11 @@ function NoLocationView() {
 
   const addSearchTag = () => {
     if (searchText.trim() !== "") {
-      // const newItems = {...weatherInfos};
-      // newItems.map((data) => {
-      //     setTags([...tags, data.name]);
-      // });
+      const tag: string[] = [];
+      weatherInfos.map((data) => {
+        tag.push(data.name)
+      });
+      setTags(tag);
       setAddedWeatherData([]);
       setSearchText("");
       fetchData(searchText.trim());
@@ -77,7 +78,7 @@ function NoLocationView() {
         </div>
       ) : weatherData ? (
         <div className="weather-card-view">
-          <Link to="/details" state={{ type: weatherData }} style={{ textDecoration: 'none'}}>
+          <Link to="/details" state={{ type: weatherData }} style={{ textDecoration: 'none', alignItems: 'start'}}>
             <WeatherCard weatherData={weatherData} />
           </Link>
         </div>
@@ -114,7 +115,6 @@ function fetchWeatherInfo(
       const newData = weatherInfos.find((item) => item.id == data.id);
       if (newData != null && newData != undefined) {
         setWeatherData(newData);
-        setTags([...tags, newData.name]);
       } else {
         // Access sunrise and sunset times from the API response
         const sunriseTimestamp = data.sys.sunrise;

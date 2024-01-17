@@ -59,7 +59,7 @@ const WeatherDetailViewCard: React.FC<WeatherCardProps> = ({
           <div>
             <div className="heading">%RAIN</div>
             <div className="sub-heading">
-              {weatherData.rain == undefined ? "-" : weatherData.rain}
+              {weatherData.rain == undefined ? "-" : weatherData.rain}%
             </div>
           </div>
           <div>

@@ -56,13 +56,19 @@
 .warning-view {
     display: flex;
     align-items: center;
+    font-family: 'Roboto' sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    color: #BFAF1B;
 }
 .warning-view img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: auto;
     padding-right: 10px;
 }
-.detail-view div {
+.description {
+    align-items: flex-end;
     font-family: 'Roboto' sans-serif;
     font-size: 14px;
     font-weight: 400;
