@@ -69,6 +69,9 @@
     padding-top: 40px;
     width: 60%;
 }
+.weather-card-view {
+    text-decoration: none;
+}
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     .search-container {

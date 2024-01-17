@@ -6,6 +6,7 @@
 .header-view {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .header-view button {
     display: flex;
@@ -16,7 +17,6 @@
     font-style: normal;
     border: none;
     background-color: white;
-    
 }
 .header-view img {
     width: 10px;
@@ -148,8 +148,6 @@
     width: 60%;
     margin-top: 20px;
     display: flex;
-    /* justify-content: start;
-    align-items: start; */
     flex-direction: column;
     background-color: #FDFCFC;
     border: 1px solid rgba(0, 0, 0, 0.10);
