@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && workbox injectManifest",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -51,7 +51,6 @@
     "@types/react-slick": "^0.23.13",
     "@types/redux": "^3.6.0",
     "@types/redux-thunk": "^2.1.0",
-    "eslint": "^8.56.0",
-    "workbox-cli": "^7.0.0"
+    "eslint": "^8.56.0"
   }
 }
