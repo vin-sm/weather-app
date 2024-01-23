@@ -7,6 +7,7 @@ import store, { useAppSelector } from "./store/configureStore";
 import CarouselView from "./CarouselView";
 import { removeObject } from "./store/reducer";
 import { Link } from "react-router-dom";
+import { differenceInSeconds } from "date-fns";
 
 function NoLocationView() {
   const { weatherInfos } = useAppSelector((state) => state.data);
@@ -19,12 +20,12 @@ function NoLocationView() {
     if (searchText.trim() !== "") {
       const tag: string[] = [];
       weatherInfos.map((data) => {
-        tag.push(data.name)
+        tag.push(data.name);
       });
       setTags(tag);
       setAddedWeatherData([]);
       setSearchText("");
-      fetchData(searchText.trim());
+      fetchedData(searchText.trim());
     }
   };
 
@@ -32,12 +33,7 @@ function NoLocationView() {
     setSearchText(e.target.value);
   };
 
-  const fetchData = fetchWeatherInfo(
-    weatherInfos,
-    setWeatherData,
-    setTags,
-    tags
-  );
+  const fetchedData = fetchWeatherInfo(weatherInfos, setWeatherData);
 
   const handleClick = (data: WeatherData) => {
     if (data != null && data != undefined) {
@@ -78,7 +74,11 @@ function NoLocationView() {
         </div>
       ) : weatherData ? (
         <div className="weather-card-view">
-          <Link to="/details" state={{ type: weatherData }} style={{ textDecoration: 'none'}}>
+          <Link
+            to="/details"
+            state={{ type: weatherData }}
+            style={{ textDecoration: "none" }}
+          >
             <WeatherCard weatherData={weatherData} />
           </Link>
         </div>
@@ -96,9 +96,7 @@ export default NoLocationView;
 
 function fetchWeatherInfo(
   weatherInfos: WeatherData[],
-  setWeatherData: React.Dispatch<React.SetStateAction<WeatherData | null>>,
-  setTags: React.Dispatch<React.SetStateAction<string[]>>,
-  tags: string[]
+  setWeatherData: React.Dispatch<React.SetStateAction<WeatherData | null>>
 ) {
   const API_KEY = "7abea1c2a90addf6e25624a5c05413af";
   const fetchData = async (city: string) => {
@@ -116,25 +114,22 @@ function fetchWeatherInfo(
       if (newData != null && newData != undefined) {
         setWeatherData(newData);
       } else {
-        // Access sunrise and sunset times from the API response
-        const sunriseTimestamp = data.sys.sunrise;
-        const sunsetTimestamp = data.sys.sunset;
+        const sunriseDate = new Date(data.sys.sunrise * 1000);
+        const sunsetDate = new Date(data.sys.sunset * 1000);
 
-        // Calculate the length of the day in milliseconds
-        const dayLength = Math.abs(sunsetTimestamp - sunriseTimestamp);
-        console.log(dayLength);
+        const dayLengthInSeconds = differenceInSeconds(sunsetDate, sunriseDate);
+
         // Convert the length of the day from milliseconds to hours and minutes
-        const hours = Math.floor(dayLength / (60 * 60 * 1000));
-        const minutes = Math.floor(
-          (dayLength % (60 * 60 * 1000)) / (60 * 1000)
-        );
-        console.log(hours);
+        const hours = Math.floor(dayLengthInSeconds / 3600);
+        const minutes = Math.floor((dayLengthInSeconds % 3600) / 60);
         // Get the current timestamp
-        const currentTimestamp = Math.floor(Date.now() / 1000);
+        const currentTimestamp = Date.now();
 
         // Calculate the remaining daylight in seconds
-        const remainingDaylightSeconds = sunsetTimestamp - currentTimestamp;
-        console.log(remainingDaylightSeconds);
+        const remainingDaylightSeconds = differenceInSeconds(
+          sunsetDate,
+          currentTimestamp
+        );
         // Convert remaining daylight from seconds to hours and minutes
         const remainingHours = Math.floor(remainingDaylightSeconds / 3600);
         const remainingMinutes = Math.floor(
@@ -144,7 +139,6 @@ function fetchWeatherInfo(
           id: data.id,
           name: data.name,
           temperature: data.main.temp,
-          main: data.weather[0].main,
           icon: data.weather[0].icon,
           description: data.weather[0].description,
           pressure: data.main.pressure,
@@ -155,7 +149,7 @@ function fetchWeatherInfo(
               : 0,
           clouds: data.clouds.all,
           isAdded: false,
-          date: data.dt_txt,
+          date: data.timezone,
           dayLength: `${hours}H ${minutes}M`,
           dayLight: `${remainingHours}H ${remainingMinutes}M`,
         };

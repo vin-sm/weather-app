@@ -2,7 +2,6 @@ interface WeatherData {
   id: number;
   name: string;
   temperature: number;
-  main: string;
   icon: string;
   description: string;
   pressure: number;
@@ -10,7 +9,7 @@ interface WeatherData {
   rain: number;
   clouds: number;
   isAdded: boolean;
-  date: string;
+  date: number;
   dayLength: string;
   dayLight: string;
 }

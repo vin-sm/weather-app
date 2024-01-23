@@ -21,7 +21,6 @@ const CarouselView: React.FC<CarouselProps> = ({
   };
 
   const handleClick = (data: WeatherData) => {
-    console.log(data);
     onRemoveClick(data);
   };
 

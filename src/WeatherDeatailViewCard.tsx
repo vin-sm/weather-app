@@ -24,7 +24,6 @@ const WeatherDetailViewCard: React.FC<WeatherCardProps> = ({
     { day: "Day 4", temperatureMax: 20, temperatureMin: 14 },
     { day: "Day 5", temperatureMax: 23, temperatureMin: 17 },
   ];
-
   const handleClick = () => {
     if (onRemoveClick != null) {
       onRemoveClick(weatherData);
@@ -50,7 +49,7 @@ const WeatherDetailViewCard: React.FC<WeatherCardProps> = ({
         <div className="weather-detail">
           <div>
             <div className="heading">TIME</div>
-            <div className="sub-heading">{format(new Date(), "hh:mm a")}</div>
+            <div className="sub-heading">{format(weatherData.date*1000, "hh:mm a")}</div>
           </div>
           <div>
             <div className="heading">PRESSURE</div>
@@ -69,9 +68,9 @@ const WeatherDetailViewCard: React.FC<WeatherCardProps> = ({
         </div>
         <div className="sunrise-sunset-view">
           <div className="sunrise-sunset-title">SUNRISE & SUNSET</div>
-          <div className="weather-grapgh">
+          {/* <div className="weather-grapgh">
             <WeatherChart forecastData={weatherInfo} />
-          </div>
+          </div> */}
           <div className="day-info">
             <div className="length-of-day">
               <div className="day-title">Length of day: </div>
