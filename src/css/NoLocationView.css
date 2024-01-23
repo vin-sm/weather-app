@@ -1,0 +1,88 @@
+.no-location-view {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 140px;
+}
+.search-container {
+    display: flex;
+    border: 1px solid #DADADA;
+    border-radius: 20px;
+    padding: 5px;
+    width: 60%;
+    height: 40px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+    font-family: 'Roboto' sans-serif;
+}
+
+.search-button {
+    background-color: #FDFCFC;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.no-location-title {
+    padding-top: 100px;
+    align-self: center;
+}
+
+.left-side img {
+    align-items: center;
+}
+
+.no-location-title div {
+    font-family: 'Roboto' sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 60%;
+}
+
+.tag {
+    background-color: #FDFCFC;
+    padding: 5px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.weather-detail-card-view {
+    padding-top: 40px;
+    width: 60%;
+}
+.weather-card-view {
+    width: 60%;
+}
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .search-container, .weather-card-view, .tag-container{
+        width: 100%;
+        /* Set container width to 100% on smaller screens */
+        max-width: 90%;
+        /* Limit maximum width on smaller screens */
+    }
+    .weather-detail-card-view {
+        padding-top: 20px;
+        width: 100%;
+    }
+}

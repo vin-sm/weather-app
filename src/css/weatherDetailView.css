@@ -1,0 +1,211 @@
+.weather-detail-view {
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.header-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-view button {
+    display: flex;
+    color: #0170FE;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    border: none;
+    background-color: white;
+}
+.header-view img {
+    width: 10px;
+    height: auto;
+    padding-right: 20px;
+}
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.added-to-list {
+    display: flex;
+    color: white;
+    background-color: #009456;
+    align-items: center;
+    font-family: 'Roboto' sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    border-radius: 6px;
+    padding: 8px 15px;
+}
+.added-to-list div {
+    padding-right: 10px;
+}
+.added-to-list img {
+    width: 14px;
+    height: auto;
+}
+.added-list {
+    display: flex;
+    align-items: center;
+}
+.remove-button-view {
+    display: flex;
+    justify-content: end;
+}
+.added-list button, .remove-button-view button {
+    background-color: #EC7272;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    margin-left: 10px;
+    font-family: 'Roboto' sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+}
+.add-to-list {
+    display: flex;
+    align-items: center;
+    color: #2C2C2C;
+    font-family: 'Roboto' sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+}
+.add-to-list button {
+    align-items: center;
+}
+.add-to-list-label {
+    color: #2C2C2C;
+    padding-right: 10px;
+}
+.plus-label {
+    background-color: #DADADA;
+    color: #2C2C2C;
+    align-content: center;
+    padding: 2px 6px;
+    border-radius: 12px;
+}
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.weather-icon {
+    width: 80px;
+    height: 80px;
+    padding-bottom: 16px;
+}
+.city-name {
+    display: flex;
+    align-items: center;
+    padding-bottom: 16px;
+}
+.city-name img {
+    width: 16px;
+    height: auto;
+    padding-left: 10px;
+}
+.weather-detail {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #FDFCFC;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 10px;
+    width: 60%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.weather-detail div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 10px;
+}
+.heading {
+    color: #5A5A5A;
+    font-family: 'Roboto' sans-serif;
+    font-family: 'Roboto' sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+}
+.sub-heading {
+    color: #535353;
+    font-family: 'Roboto' sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+}
+.sunrise-sunset-view {
+    width: 60%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FDFCFC;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 10px;
+    padding: 20px;
+}
+.sunrise-sunset-title {
+    color: #C4C4C4;
+    padding-bottom: 20px;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 500;
+}
+.day-info {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.length-of-day {
+    display: flex;
+    padding-bottom: 10px;
+}
+.weather-grapgh {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+}
+.day-title {
+    padding-right: 5px;
+    color: #9A9A9A;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.day-sub-title {
+    color: #2C2C2C;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .weather-detail {
+        border: none;
+        background-color: white;
+    }
+    .sunrise-sunset-view  {
+        border: none;
+        background-color: white;
+        width: 90%;
+    }
+    .weather-detail-view {
+        width: 100%;
+        padding-top: 80px;
+    }
+    .grapgh-and-day-info {
+        padding-bottom: 20px;
+    }
+}
