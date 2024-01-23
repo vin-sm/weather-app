@@ -117,6 +117,7 @@ function fetchWeatherInfo(
         const sunriseDate = new Date(data.sys.sunrise * 1000);
         const sunsetDate = new Date(data.sys.sunset * 1000);
 
+        // Calculate the day length in seconds
         const dayLengthInSeconds = differenceInSeconds(sunsetDate, sunriseDate);
 
         // Convert the length of the day from milliseconds to hours and minutes
@@ -135,6 +136,7 @@ function fetchWeatherInfo(
         const remainingMinutes = Math.floor(
           (remainingDaylightSeconds % 3600) / 60
         );
+        
         const parsedData: WeatherData = {
           id: data.id,
           name: data.name,
@@ -152,6 +154,8 @@ function fetchWeatherInfo(
           date: data.timezone,
           dayLength: `${hours}H ${minutes}M`,
           dayLight: `${remainingHours}H ${remainingMinutes}M`,
+          sunrise: data.sys.sunrise,
+          sunset: data.sys.sunset
         };
         setWeatherData(parsedData);
       }

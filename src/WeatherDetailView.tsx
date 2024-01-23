@@ -18,10 +18,12 @@ function WeatherDetailView() {
   function goToHome() {
     navigate("/");
   }
+
   function addDataToList() {
     if (weatherData != null && weatherData != undefined) {
       const newItems = { ...weatherData };
       newItems.isAdded = true;
+      console.log(newItems);
       setWeatherData(newItems);
       store.dispatch(saveObject(newItems));
     }

@@ -12,6 +12,8 @@ interface WeatherData {
   date: number;
   dayLength: string;
   dayLight: string;
+  sunrise: number;
+  sunset: number;
 }
 
 interface WeatherDataState {

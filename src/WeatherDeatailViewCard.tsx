@@ -2,7 +2,7 @@ import React from "react";
 import shareIcon from "./assets/shareIcon.svg";
 import celsiusIcon from "./assets/degreeIcon.svg";
 import { format } from "date-fns";
-import WeatherChart from "./WeatherForecastGraph";
+import WeatherChart from "./WeatherChart";
 
 interface WeatherCardProps {
   weatherData: WeatherData;
@@ -18,11 +18,8 @@ const WeatherDetailViewCard: React.FC<WeatherCardProps> = ({
   const baseUrl = "https://openweathermap.org/img/wn/";
   const fullUrl = baseUrl + weatherData.icon + "@2x.png";
   const weatherInfo = [
-    { day: "Day 1", temperatureMax: 25, temperatureMin: 18 },
-    { day: "Day 2", temperatureMax: 27, temperatureMin: 20 },
-    { day: "Day 3", temperatureMax: 22, temperatureMin: 15 },
-    { day: "Day 4", temperatureMax: 20, temperatureMin: 14 },
-    { day: "Day 5", temperatureMax: 23, temperatureMin: 17 },
+    { day: "1", date: weatherData.sunrise },
+    { day: "2", date: weatherData.sunset }
   ];
   const handleClick = () => {
     if (onRemoveClick != null) {
@@ -68,9 +65,9 @@ const WeatherDetailViewCard: React.FC<WeatherCardProps> = ({
         </div>
         <div className="sunrise-sunset-view">
           <div className="sunrise-sunset-title">SUNRISE & SUNSET</div>
-          {/* <div className="weather-grapgh">
-            <WeatherChart forecastData={weatherInfo} />
-          </div> */}
+          <div className="weather-grapgh">
+            <WeatherChart city={weatherData.name} />
+          </div>
           <div className="day-info">
             <div className="length-of-day">
               <div className="day-title">Length of day: </div>
